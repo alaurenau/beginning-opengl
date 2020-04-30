@@ -9,5 +9,5 @@ in float texCoord1;
 out vec4 outColor;
 
 void main(void) {
-	outColor = color * texture(texture0, texCoord0.st) * texture(texture1, texCoord1.s);	// 
+	outColor = color * texture(texture0, texCoord0.st) * texture(texture1, texCoord1);
 }

@@ -10,6 +10,10 @@
 
 using std::vector;
 
+#ifdef _WIN32
+    extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }
+#endif
+
 void error(const std::string& s) {
 #ifdef _WIN32
 	MessageBox(NULL, s.c_str(), "An error occurred", MB_ICONINFORMATION | MB_OK);

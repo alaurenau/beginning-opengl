@@ -58,7 +58,7 @@ ELSE(WIN32)
 ENDIF(WIN32)
 
 IF(WIN32)
-	INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/src/freetype/include ${CMAKE_SOURCE_DIR}/src/freetype/include/freetype2)
+	INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/src/freetype/include ${PROJECT_SOURCE_DIR}/src/freetype/include/freetype2)
 	LINK_DIRECTORIES( ${PROJECT_SOURCE_DIR}/src/freetype/lib )	
 	ADD_EXECUTABLE(${APP_NAME} WIN32 ${SOURCE_FILES})
 ELSE(WIN32)
