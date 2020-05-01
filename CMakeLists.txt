@@ -33,9 +33,9 @@ add_subdirectory(chapter_4/square_translation)
 add_subdirectory(chapter_5/terrain_extensions_glee)
 add_subdirectory(chapter_5/terrain_extensions_manual)
 
-#add_subdirectory(chapter_6/robot_kazmath_example)
-#add_subdirectory(chapter_6/terrain_glsl)
-#
+add_subdirectory(chapter_6/robot_kazmath_example)
+add_subdirectory(chapter_6/terrain_glsl)
+
 #add_subdirectory(chapter_7/terrain_simple_texture)
 #add_subdirectory(chapter_7/texture_wrap_modes)
 #

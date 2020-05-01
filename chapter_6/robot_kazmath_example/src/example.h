@@ -5,13 +5,14 @@
 
 #include <kazmath/GL/matrix.h>
 #include <kazmath/mat4.h>
+#include <examplecallback.h>
 
 #include "Robot.h"
 
 using std::vector;
 class GLSLProgram;
 
-class Example
+class Example: public ExampleCallback
 {
 public:
     Example();

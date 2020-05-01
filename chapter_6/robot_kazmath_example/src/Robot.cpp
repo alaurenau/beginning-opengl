@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "Robot.h"
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "glsl_shader.h"
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 

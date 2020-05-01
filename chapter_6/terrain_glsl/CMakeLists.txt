@@ -6,22 +6,13 @@ PROJECT(${APP_NAME})
 
 IF(WIN32)
 	ADD_DEFINITIONS(-D_WIN32)
-    SET(SOURCE_FILES 
-        src/main.cpp
-        src/example.cpp
-        src/terrain.cpp
-        src/glee/GLee.c
-        src/glwindow.cpp
-    )
-ELSE(WIN32)
-    SET(SOURCE_FILES 
-        src/main.cpp
-        src/example.cpp
-        src/terrain.cpp
-        src/glee/GLee.c
-        src/glxwindow.cpp
-    )
 ENDIF(WIN32)
+
+SET(SOURCE_FILES
+		src/main.cpp
+		src/example.cpp
+		src/terrain.cpp
+		)
 
 LINK_DIRECTORIES( ${PROJECT_SOURCE_DIR}/lib )
 INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include )
