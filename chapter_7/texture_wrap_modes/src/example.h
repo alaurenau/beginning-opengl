@@ -5,10 +5,12 @@
 #include <windows.h>
 #endif
 
+#include <examplecallback.h>
 #include <vector>
 #include <string>
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "targa.h"
+#include <glfwwindow.h>
 
 class GLSLProgram; 
 
@@ -16,7 +18,7 @@ using std::vector;
 using std::string;
 
 
-class Example 
+class Example: public ExampleCallback
 {
 public:
     Example();
@@ -28,6 +30,8 @@ public:
     void shutdown();
 
     void onResize(int width, int height);
+
+    GlfwWindow* m_window;
 
 private:
     GLSLProgram* m_GLSLProgram;

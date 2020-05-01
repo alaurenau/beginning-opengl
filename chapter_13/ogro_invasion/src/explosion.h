@@ -4,7 +4,7 @@
 #include <vector>
 #include <memory>
 
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "entity.h"
 #include "geom.h"
 #include "targa.h"

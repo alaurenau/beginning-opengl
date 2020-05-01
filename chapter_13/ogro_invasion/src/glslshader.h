@@ -10,7 +10,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "glee/GLee.h"
+#include <GLee.h>
 
 using std::string;
 using std::ifstream;

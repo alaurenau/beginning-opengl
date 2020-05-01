@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include "glee/GLee.h"
+#include <GLee.h>
 
 // These masks are AND'd with the imageDesc in the TGA header,
 // bit 4 is left-to-right ordering

@@ -2,7 +2,7 @@
 #define GLXWINDOW_H_INCLUDED
 
 #define GLX_GLXEXT_LEGACY //Must be declared so that our local glxext.h is picked up, rather than the system one
-#include "glee/GLee.h"
+#include <GLee.h>
 #include <GL/glx.h>
 #include "glx/glxext.h"
 

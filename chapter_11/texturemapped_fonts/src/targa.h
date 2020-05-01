@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include "glee/GLee.h"
+#include <GLee.h>
 
 using std::vector;
 using std::string;

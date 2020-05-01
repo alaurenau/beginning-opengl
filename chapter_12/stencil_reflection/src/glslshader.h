@@ -12,7 +12,7 @@
 #endif
 
 
-#include "glee/GLee.h"
+#include <GLee.h>
 #include <GL/glu.h>
 
 using std::string;

@@ -36,9 +36,9 @@ add_subdirectory(chapter_5/terrain_extensions_manual)
 add_subdirectory(chapter_6/robot_kazmath_example)
 add_subdirectory(chapter_6/terrain_glsl)
 
-#add_subdirectory(chapter_7/terrain_simple_texture)
-#add_subdirectory(chapter_7/texture_wrap_modes)
-#
+add_subdirectory(chapter_7/terrain_simple_texture)
+add_subdirectory(chapter_7/texture_wrap_modes)
+
 #add_subdirectory(chapter_8/blending)
 #add_subdirectory(chapter_8/multiple_lights)
 #add_subdirectory(chapter_8/point_light)

@@ -4,7 +4,7 @@
 
 #include <string>
 #include <cstdlib>
-#include "glee/GLee.h"
+#include <GLee.h>
 #include <GL/glu.h>
 #include "ogro.h"
 #include "glslshader.h"

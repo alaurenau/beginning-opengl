@@ -4,7 +4,7 @@
 #include <string>
 #include "geom.h"
 #include "targa.h"
-#include "glee/GLee.h"
+#include <GLee.h>
 
 using std::string;
 

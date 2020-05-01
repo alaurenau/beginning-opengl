@@ -1,5 +1,5 @@
 #include "plane.h"
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "glslshader.h"
 
 bool Plane::initialize(GLSLProgram* ptr)

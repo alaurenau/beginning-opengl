@@ -8,7 +8,7 @@
 #include <freetype2/freetype/ftoutln.h>
 #include <freetype2/freetype/fttrigon.h>
 #include <string>
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "glslshader.h"
 #include "uncopyable.h"
 

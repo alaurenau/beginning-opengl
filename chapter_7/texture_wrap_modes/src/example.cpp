@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <fstream>
-#include "glee/GLee.h"
+#include <GLee.h>
 #include <GL/glu.h>
 
 #include "example.h"
@@ -87,9 +87,8 @@ bool Example::init()
 
 void Example::prepare(float dt)
 {
-#ifdef WIN32
-    static int lastPress = GetTickCount();
-    if (GetAsyncKeyState(VK_SPACE) & 0x8000 && (GetTickCount() - lastPress) > 300)
+    static double lastPress = m_window->getCurrentTime();
+    if (m_window->keyHeldDown(GLFW_KEY_SPACE) && (m_window->getCurrentTime() - lastPress) > 0.3)
     {       
         if (m_wrapMode == GL_REPEAT)
         {
@@ -103,13 +102,12 @@ void Example::prepare(float dt)
         {
             m_wrapMode = GL_REPEAT;
         }
-        lastPress = GetTickCount();
+        lastPress = m_window->getCurrentTime();
         
         //Set the new wrap mode
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, m_wrapMode);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, m_wrapMode);
     }
-#endif
 }
 
 void Example::render()

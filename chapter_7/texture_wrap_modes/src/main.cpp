@@ -7,8 +7,8 @@
 #include <windows.h>
 #endif
 
-#include <glfwwindow.h>
 #include "example.h"
+#include <glfwwindow.h>
 
 #ifdef _WIN32
 int WINAPI WinMain(HINSTANCE hInstance,
@@ -30,6 +30,7 @@ int main(int argc, char** argv)
 
     //The example OpenGL code
     Example example;
+    example.m_window = &programWindow;
 
     //Attach our example to our window
     programWindow.attachExample(&example);

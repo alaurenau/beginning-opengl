@@ -2,7 +2,7 @@
 #define TREE_H_INCLUDED
 
 #include <memory>
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "entity.h"
 
 class GLSLProgram;

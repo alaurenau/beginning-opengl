@@ -3,7 +3,7 @@
 #endif
 
 #include <iostream>
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "camera.h"
 #include "entity.h"
 #include <GL/glu.h>

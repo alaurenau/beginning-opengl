@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "targa.h"
 #include "glslshader.h"
 

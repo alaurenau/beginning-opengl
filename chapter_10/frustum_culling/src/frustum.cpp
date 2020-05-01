@@ -1,5 +1,5 @@
 #include <cmath>
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "frustum.h"
 
 Plane Frustum::extractPlane(float a, float b, float c, float d)

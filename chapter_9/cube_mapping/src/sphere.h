@@ -3,7 +3,7 @@
 #include <vector>
 using std::vector;
 
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "geom.h"
 
 class GLSLProgram;

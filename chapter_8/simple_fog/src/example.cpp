@@ -5,7 +5,7 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
-#include "glee/GLee.h"
+#include <GLee.h>
 #include <GL/glu.h>
 
 #include "example.h"

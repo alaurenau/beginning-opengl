@@ -4,7 +4,7 @@
 
 #include <ctime>
 #include <stdio.h>
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "glwindow.h"
 #include "example.h"
 #include "win32keyboardinterface.h"

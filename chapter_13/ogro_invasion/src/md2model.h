@@ -1,7 +1,7 @@
 #ifndef BOGLGP_MD2_H
 #define BOGLGP_MD2_H
 
-#include "glee/GLee.h"
+#include <GLee.h>
 
 #include <vector>
 #include <string>

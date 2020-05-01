@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "targa.h"
 
 using std::string;

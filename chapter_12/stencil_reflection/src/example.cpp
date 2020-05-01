@@ -7,7 +7,7 @@
 #include <ctime>
 #include <cmath>
 
-#include "glee/GLee.h"
+#include <GLee.h>
 
 #include "example.h"
 #include "glslshader.h"

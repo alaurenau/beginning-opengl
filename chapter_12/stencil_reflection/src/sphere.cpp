@@ -1,5 +1,5 @@
 #include <cmath>
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "sphere.h"
 #include "glslshader.h"
 

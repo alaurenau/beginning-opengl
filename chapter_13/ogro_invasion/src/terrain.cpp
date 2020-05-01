@@ -8,7 +8,7 @@
 #include <cassert>
 #include <vector>
 
-#include "glee/GLee.h"
+#include <GLee.h>
 #include "terrain.h"
 #include "example.h"
 #include "GL/glu.h"
