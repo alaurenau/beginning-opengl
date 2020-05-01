@@ -4,15 +4,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <SDL/SDL.h>
-#include <GL/gl.h>
+#include <GLFW/glfw3.h>
 #include <GL/glu.h>
 
 using std::vector;
-
-#ifdef _WIN32
-    extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }
-#endif
 
 void error(const std::string& s) {
 #ifdef _WIN32
@@ -54,7 +49,7 @@ void SimpleApp::render()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 
-	gluLookAt(0.0, 1.0, 6.0, 
+	gluLookAt(0.0, 1.0, 6.0,
               0.0, 0.0, 0.0,
               0.0, 1.0, 0.0);
 
@@ -103,70 +98,69 @@ void SimpleApp::resize(int w, int h)
     glLoadIdentity(); //deprecated
 }
 
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
+{
+    // When a user presses the escape key, we set the WindowShouldClose property to true,
+    // closing the application
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, GL_TRUE);
+}
+
+static SimpleApp myApp;
+
+void resize_callback(GLFWwindow *window, int width, int height)
+{
+    myApp.resize(width, height);
+}
+
 int main(int argc, char** argv)
 {
-    SimpleApp myApp;
 
-    if ( SDL_Init( SDL_INIT_VIDEO ) != 0 )
+
+    if (glfwInit() != GL_TRUE)
     {
-        std::cerr << "Could not initialize SDL" << std::endl;
+        std::cerr << "Could not initialize window" << std::endl;
         return false;
     }
 
-    SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 5);
-    SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 5);
-    SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 5);
-    SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 5);
-    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
-    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+    glfwWindowHint(GLFW_RED_BITS, 5);
+    glfwWindowHint(GLFW_GREEN_BITS, 5);
+    glfwWindowHint(GLFW_BLUE_BITS, 5);
+    glfwWindowHint(GLFW_ALPHA_BITS, 5);
+    glfwWindowHint(GLFW_DEPTH_BITS, 16);
+    glfwWindowHint(GLFW_DOUBLEBUFFER, GL_TRUE);
+    glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
 
     std::string title = "BOGLGP Chapter 1";
-    SDL_WM_SetCaption(title.c_str(), title.c_str());
 
     // Create the window
-    if (!SDL_SetVideoMode(SimpleApp::WINDOW_WIDTH, SimpleApp::WINDOW_HEIGHT, 0, SDL_OPENGL | SDL_RESIZABLE))
+    GLFWwindow* window = glfwCreateWindow(SimpleApp::WINDOW_WIDTH, SimpleApp::WINDOW_HEIGHT,
+                                          title.c_str(), NULL, NULL);
+    if (window == NULL)
     {
         std::cerr << "Could not create the window" << std::endl;
         return false;
     }
 
+    glfwMakeContextCurrent(window);
+    glfwSetKeyCallback(window, key_callback);
+    glfwSetWindowSizeCallback(window, resize_callback);
+
     if (!myApp.initialize())
     {
-        SDL_Quit();
+        glfwTerminate();
         return 1;
     }
 
-    bool done = false;
-
-    while (!done)
+    while (!glfwWindowShouldClose(window))
     {
-        SDL_Event event;
-
-        while (SDL_PollEvent(&event))
-        {
-
-			switch(event.type) {
-				case SDL_QUIT:
-					done = true;
-				break;
-				case SDL_VIDEORESIZE:
-					myApp.resize(event.resize.w, event.resize.h);
-				break;
-				case SDL_KEYDOWN:
-					if (event.key.keysym.sym == SDLK_ESCAPE) {
-						done = true;
-					}
-				break;
-				default:
-					break;
-			}
-        }
+        glfwPollEvents();
 
         myApp.render();
-        SDL_GL_SwapBuffers();
+        glfwSwapBuffers(window);
     }
 
-    SDL_Quit();
+    glfwTerminate();
 	
     return 0;
 }

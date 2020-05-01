@@ -1,6 +1,14 @@
 cmake_minimum_required(VERSION 3.0)
 project(beginning-opengl)
 
+option(GLFW_BUILD_EXAMPLES OFF)
+option(GLFW_BUILD_TESTS OFF)
+option(GLFW_BUILD_DOCS OFF)
+option(GLFW_INSTALL OFF)
+add_subdirectory(lib/glfw)
+
+include_directories(lib/glfw/include)
+
 add_subdirectory(chapter_1/simple)
 
 add_subdirectory(chapter_2/first_app)
