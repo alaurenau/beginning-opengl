@@ -3,10 +3,10 @@
 
 // FreeType Headers
 #include <ft2build.h>
-#include <freetype2/freetype/freetype.h>
-#include <freetype2/freetype/ftglyph.h>
-#include <freetype2/freetype/ftoutln.h>
-#include <freetype2/freetype/fttrigon.h>
+#include <freetype.h>
+#include <ftglyph.h>
+#include <ftoutln.h>
+#include <fttrigon.h>
 #include <string>
 #include <GLee.h>
 #include "glslshader.h"

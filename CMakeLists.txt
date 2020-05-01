@@ -7,7 +7,10 @@ option(GLFW_BUILD_DOCS OFF)
 option(GLFW_INSTALL OFF)
 add_subdirectory(lib/glfw)
 
-include_directories(lib/glfw/include lib/glfw-window lib/glee)
+add_subdirectory(lib/freetype)
+
+include_directories(lib/glfw/include lib/glfw-window lib/glee lib/freetype/include)
+
 add_library(glfw-window lib/glfw-window/glfwwindow.cpp lib/glfw-window/examplecallback.h)
 add_library(glee lib/glee/GLee.c)
 
