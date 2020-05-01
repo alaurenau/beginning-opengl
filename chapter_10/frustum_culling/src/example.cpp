@@ -115,13 +115,13 @@ void Example::prepare(float dt)
     m_model.update(dt);
     updateFPS(dt);
 
-    static double lastPress = glfwGetTime();
+    static double lastPress = m_window->getCurrentTime();
 
     //If the spacebar was pressed, and >300 milliseconds has passed since the last press
     //then toggle the frustum culling
-    if (m_window->keyHeldDown(GLFW_KEY_SPACE) && (glfwGetTime() - lastPress) > 0.3) {
+    if (m_window->keyHeldDown(GLFW_KEY_SPACE) && (m_window->getCurrentTime() - lastPress) > 0.3) {
         m_frustumCullingEnabled = !m_frustumCullingEnabled;
-        lastPress = glfwGetTime();
+        lastPress = m_window->getCurrentTime();
     }
 
     if (m_window->keyHeldDown(GLFW_KEY_LEFT)) {

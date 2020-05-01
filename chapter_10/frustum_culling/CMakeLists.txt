@@ -13,7 +13,6 @@ SET(SOURCE_FILES
 		src/example.cpp
 		src/targa.cpp
 		src/terrain.cpp
-		src/glee/GLee.c
 		src/md2model.cpp
 		src/frustum.cpp
 		)
