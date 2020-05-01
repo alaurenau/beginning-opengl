@@ -11,7 +11,6 @@ IF(WIN32)
         src/example.cpp
         src/glwindow.cpp
 		src/targa.cpp
-		src/glee/GLee.c
 		src/camera.cpp
 		src/collider.cpp
 		src/enemy.cpp
@@ -36,7 +35,6 @@ ELSE(WIN32)
         src/example.cpp
         src/glxwindow.cpp
 		src/targa.cpp
-		src/glee/GLee.c
 		src/camera.cpp
 		src/collider.cpp
 		src/enemy.cpp

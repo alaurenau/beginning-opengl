@@ -3,9 +3,11 @@
 
 #ifdef _WIN32
 #include <windows.h>
+#include "glwindow.h"
+#else
+#include "glxwindow.h"
 #endif
 
-#include <glfwwindow.h>
 #include "example.h"
 
 #ifdef _WIN32
