@@ -9,6 +9,7 @@
 #include "example.h"
 #include "win32keyboardinterface.h"
 #include "win32mouseinterface.h"
+#include <glfwwindow.h>
 
 GLWindow::GLWindow(HINSTANCE hInstance):
 m_isRunning(false),

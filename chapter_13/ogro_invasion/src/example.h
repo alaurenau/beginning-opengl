@@ -3,12 +3,13 @@
 
 #include <memory>
 #include "uncopyable.h"
+#include <examplecallback.h>
 
 class FreeTypeFont;
 class GameWorld;
 class BOGLGPWindow;
 
-class Example : private Uncopyable
+class Example : private Uncopyable, public ExampleCallback
 {
 public:
     Example(BOGLGPWindow* window);

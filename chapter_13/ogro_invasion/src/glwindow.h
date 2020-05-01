@@ -5,8 +5,6 @@
 #include <ctime>
 #include "boglgpwindow.h"
 
-class Example; //Declare our Example class
-
 class GLWindow : public BOGLGPWindow
 {
 public:

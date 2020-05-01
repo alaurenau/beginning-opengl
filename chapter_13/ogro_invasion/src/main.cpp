@@ -9,6 +9,7 @@
 #endif
 
 #include "example.h"
+#include <glfwwindow.h>
 
 #ifdef _WIN32
 int WINAPI WinMain(HINSTANCE hInstance,
@@ -37,6 +38,11 @@ int main(int argc, char** argv)
     SimpleGLXWindow programWindow;
 #endif
 
+    //The example OpenGL code
+    Example example(&programWindow);
+
+    //Attach our example to our window
+    programWindow.attachExample(&example);
 
     //Attempt to create the window
     if (!programWindow.create(windowWidth, windowHeight, windowBPP, windowFullscreen))
@@ -48,12 +54,6 @@ int main(int argc, char** argv)
         programWindow.destroy(); //Reset the display and exit
         return 1;
     }
-
-    //The example OpenGL code
-    Example example(&programWindow);
-
-    //Attach our example to our window
-    programWindow.attachExample(&example);
 
     if (!example.init()) //Initialize our example
     {
