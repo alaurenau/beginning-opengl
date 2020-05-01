@@ -11,12 +11,6 @@
 #include "example.h"
 #include "glslshader.h"
 
-#ifdef _WIN32
-#include "glwindow.h"
-#else
-#include "glxwindow.h"
-#endif
-
 #define LINEAR_FOG 0
 #define EXP_FOG 1
 #define EXP2_FOG 2

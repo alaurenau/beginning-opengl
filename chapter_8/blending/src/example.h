@@ -5,6 +5,7 @@
 #include <windows.h>
 #endif
 
+#include <examplecallback.h>
 #include <vector>
 #include <string>
 #include "terrain.h"
@@ -15,7 +16,7 @@ class GLSLProgram;
 using std::vector;
 using std::string;
 
-class Example 
+class Example: public ExampleCallback
 {
 public:
     Example();

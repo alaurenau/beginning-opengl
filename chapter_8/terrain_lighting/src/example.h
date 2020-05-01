@@ -9,13 +9,14 @@
 #include <string>
 #include "terrain.h"
 #include "targa.h"
+#include <examplecallback.h>
 
 class GLSLProgram; 
 
 using std::vector;
 using std::string;
 
-class Example 
+class Example: public ExampleCallback
 {
 public:
     Example();
