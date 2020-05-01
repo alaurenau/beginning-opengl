@@ -2,7 +2,7 @@
 #define BOGLGP_ROBOT_HEADER
 
 
-#include <kazmath/GL/matrix.h>
+#include <GL/matrix.h>
 #include <vector>
 
 

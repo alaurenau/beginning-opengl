@@ -9,7 +9,17 @@ add_subdirectory(lib/glfw)
 
 add_subdirectory(lib/freetype)
 
-include_directories(lib/glfw/include lib/glfw-window lib/glee lib/freetype/include)
+set(CMAKE_SOURCE_DIR)
+option(KAZMATH_BUILD_TESTS OFF)
+add_subdirectory(lib/kazmath)
+
+include_directories(
+        lib/glfw/include
+        lib/glfw-window
+        lib/glee
+        lib/freetype/include
+        lib/kazmath/src
+)
 
 add_library(glfw-window lib/glfw-window/glfwwindow.cpp lib/glfw-window/examplecallback.h)
 add_library(glee lib/glee/GLee.c)

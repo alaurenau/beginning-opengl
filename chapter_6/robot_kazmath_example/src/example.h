@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#include <kazmath/GL/matrix.h>
-#include <kazmath/mat4.h>
+#include <GL/matrix.h>
+#include <mat4.h>
 #include <examplecallback.h>
 
 #include "Robot.h"
