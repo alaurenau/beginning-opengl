@@ -242,7 +242,7 @@ void Example::render()
     }
 
     std::stringstream ss;
-    ss << "Chapter 10 - Frustum Culling. Monsters rendered: " << monstersRendered;
+    ss << "BOGLGP - Chapter 10 - Frustum Culling. Monsters rendered: " << monstersRendered;
     ss << " - Culling enabled: " << ((m_frustumCullingEnabled)? "Yes" : "No");
     ss << " - FPS: " << std::setprecision(3) << m_FPS;
 

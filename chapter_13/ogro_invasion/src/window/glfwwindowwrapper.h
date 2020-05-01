@@ -13,7 +13,7 @@ public:
         WIN32KeyboardInterface::keyboardInterface = &m_keyboard;
     };
 
-    virtual bool create(int width, int height, int bpp, bool fullscreen);
+    virtual bool create(int width, int height, int bpp, bool fullscreen, const char* title);
     virtual void destroy();
     virtual void processEvents();
     virtual void attachExample(Example* example);

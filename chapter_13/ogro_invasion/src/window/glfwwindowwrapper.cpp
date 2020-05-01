@@ -2,8 +2,8 @@
 
 WIN32KeyboardInterface* WIN32KeyboardInterface::keyboardInterface;
 
-bool GlfwWindowAdapter::create(int width, int height, int bpp, bool fullscreen) {
-    bool result = m_window->create(width, height, bpp, fullscreen);
+bool GlfwWindowAdapter::create(int width, int height, int bpp, bool fullscreen, const char* title) {
+    bool result = m_window->create(width, height, bpp, fullscreen, title);
     glfwSetKeyCallback(m_window->window, WIN32KeyboardInterface::glfwKeyboardCallback);
     return result;
 }

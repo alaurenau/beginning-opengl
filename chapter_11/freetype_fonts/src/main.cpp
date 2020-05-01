@@ -35,7 +35,7 @@ GlfwWindow programWindow;
     programWindow.attachExample(&example);
 
     //Attempt to create the window
-    if (!programWindow.create(windowWidth, windowHeight, windowBPP, windowFullscreen))
+    if (!programWindow.create(windowWidth, windowHeight, windowBPP, windowFullscreen, "BOGLGP - Chapter 11 - FreeType Fonts with OpenGL"))
     {
         //If it fails
 #ifdef _WIN32

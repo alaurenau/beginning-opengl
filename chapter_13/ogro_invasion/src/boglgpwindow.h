@@ -11,7 +11,7 @@ class BOGLGPWindow : private Uncopyable {
 public:
     virtual ~BOGLGPWindow() {}
 
-    virtual bool create(int width, int height, int bpp, bool fullscreen) = 0;
+    virtual bool create(int width, int height, int bpp, bool fullscreen, const char* title) = 0;
     virtual void destroy() = 0;
     virtual void processEvents() = 0;
     virtual void attachExample(Example* example) = 0;

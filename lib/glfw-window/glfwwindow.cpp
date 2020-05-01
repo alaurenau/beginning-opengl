@@ -19,7 +19,7 @@ GlfwWindow::GlfwWindow() :
 GlfwWindow::~GlfwWindow() {
 }
 
-bool GlfwWindow::create(int width, int height, int bpp, bool fullScreen) {
+bool GlfwWindow::create(int width, int height, int bpp, bool fullScreen, const char* title) {
     glfwInit();
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -27,7 +27,7 @@ bool GlfwWindow::create(int width, int height, int bpp, bool fullScreen) {
 
     GLFWmonitor* glfwMonitor = fullScreen ? glfwGetPrimaryMonitor() : NULL;
 
-    window = glfwCreateWindow(width, height, "GlfwWindow", glfwMonitor, NULL);
+    window = glfwCreateWindow(width, height, title, glfwMonitor, NULL);
     glfwSetWindowSizeCallback(window, GlfwWindow::glfwResizeCallback);
     glfwSetKeyCallback(window, GlfwWindow::glfwCloseCallback);
 

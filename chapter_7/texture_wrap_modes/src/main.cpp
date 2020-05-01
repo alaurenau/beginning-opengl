@@ -36,7 +36,7 @@ int main(int argc, char** argv)
     programWindow.attachExample(&example);
 
     //Attempt to create the window
-    if (!programWindow.create(windowWidth, windowHeight, windowBPP, windowFullscreen))
+    if (!programWindow.create(windowWidth, windowHeight, windowBPP, windowFullscreen, "BOGLGP - Chapter 7 - Texture Wrap Modes"))
     {
         //If it fails
 #ifdef _WIN32

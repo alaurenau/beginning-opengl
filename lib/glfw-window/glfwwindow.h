@@ -14,7 +14,7 @@ public:
 
     virtual ~GlfwWindow();
 
-    bool create(int width, int height, int bpp, bool fullScreen);
+    bool create(int width, int height, int bpp, bool fullScreen, const char* title);
 
     void destroy();
 
