@@ -56,7 +56,7 @@ private:
 
     GLuint m_vbos[MAX_BUFFERS];
 
-    bool m_perspective;
+    bool m_perspective = true;
     vector<GLuint> m_indices;
     vector<Vertex> m_vertices;
     vector<Color> m_colors;

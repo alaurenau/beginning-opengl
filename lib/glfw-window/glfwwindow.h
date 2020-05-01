@@ -40,7 +40,7 @@ public:
 
     static void glfwCloseCallback(GLFWwindow* window, int key, int scanCode, int action, int mode);
 
-    unsigned int m_lastTime;
+    double m_lastTime;
 };
 
 #endif //BEGINNING_OPENGL_GLFWWINDOW_H

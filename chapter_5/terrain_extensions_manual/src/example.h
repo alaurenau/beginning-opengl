@@ -6,7 +6,7 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <examplecallback.h>
-#include "glext.h"
+#include "gl/glext.h"
 #include "terrain.h"
 
 using std::vector;

@@ -12,14 +12,6 @@
 #include "terrain.h"
 #include "targa.h"
 
-#ifdef _WIN32
-	class GLWindow;
-    typedef GLWindow OglWindow;
-#else
-	class SimpleGLXWindow;
-    typedef SimpleGLXWindow OglWindow;
-#endif
-
 class GLSLProgram; 
 
 using std::vector;
@@ -41,11 +33,6 @@ public:
     vector<float> calculateNormalMatrix(const float* modelviewMatrix);
 
 
-    void setWindow(OglWindow* window) 
-    {
-        m_window = window;
-    }
-    
     std::string toggleFogMode();
 private:
     int m_fogMode;
@@ -61,7 +48,6 @@ private:
     GLuint m_grassTexID;
     GLuint m_waterTexID;
 
-    OglWindow* m_window;
 };
 
 #endif

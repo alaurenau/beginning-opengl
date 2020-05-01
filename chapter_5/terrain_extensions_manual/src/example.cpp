@@ -3,13 +3,13 @@
 #else
 #define GLX_GLXEXT_LEGACY
 #include <GL/glx.h>
-#include "glx/glxext.h"
+#include "gl/glxext.h"
 #endif
 
 #include <iostream>
 #include <fstream>
 #include <GL/gl.h>
-#include "glext.h"
+#include "gl/glext.h"
 
 #include "example.h"
 

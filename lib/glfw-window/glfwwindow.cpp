@@ -11,11 +11,6 @@ double GlfwWindow::getCurrentTime() {
     return glfwGetTime();
 }
 
-unsigned int getTickCount() {
-    unsigned int ms = (unsigned int)(glfwGetTime() * 1000);
-    return ms;
-}
-
 GlfwWindow::GlfwWindow() :
         window(NULL),
         m_lastTime(0) {
@@ -60,10 +55,11 @@ void GlfwWindow::swapBuffers() {
 }
 
 float GlfwWindow::getElapsedSeconds() {
-    unsigned int currentTime = getTickCount();
-    unsigned int diff = currentTime - m_lastTime;
+    double currentTime = glfwGetTime();
+    double diff = currentTime - m_lastTime;
     m_lastTime = currentTime;
-    return float(diff) / 1000.0f;
+
+    return float(diff);
 };
 
 void GlfwWindow::glfwCloseCallback(GLFWwindow* window, int key, int scanCode, int action, int mode) {
