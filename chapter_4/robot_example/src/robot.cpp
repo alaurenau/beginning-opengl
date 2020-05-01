@@ -8,10 +8,6 @@
 
 #include "robot.h"
 
-PFNGLGENBUFFERSARBPROC glGenBuffers = NULL;
-PFNGLBINDBUFFERPROC glBindBuffer = NULL;
-PFNGLBUFFERDATAPROC glBufferData = NULL;
-
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
 Robot::Robot()
@@ -129,16 +125,6 @@ void Robot::initializeVertexColors()
 
 bool Robot::initialize()
 {
-#ifdef _WIN32
-    glGenBuffers = (PFNGLGENBUFFERSARBPROC)wglGetProcAddress("glGenBuffers");
-    glBindBuffer = (PFNGLBINDBUFFERPROC)wglGetProcAddress("glBindBuffer");
-    glBufferData = (PFNGLBUFFERDATAPROC)wglGetProcAddress("glBufferData");
-#else
-    glGenBuffers = (PFNGLGENBUFFERSARBPROC)glXGetProcAddress((const GLubyte*)"glGenBuffers");
-    glBindBuffer = (PFNGLBINDBUFFERPROC)glXGetProcAddress((const GLubyte*)"glBindBuffer");
-    glBufferData = (PFNGLBUFFERDATAPROC)glXGetProcAddress((const GLubyte*)"glBufferData");
-#endif
-
     if (!glGenBuffers || !glBindBuffer || !glBufferData)
     {
         std::cerr << "VBOs are not supported by your graphics card" << std::endl;

@@ -1,18 +1,7 @@
-#ifdef _WIN32
-#include <windows.h>
-#else
-#include <GL/glx.h>
-#endif
-
 #include <iostream>
-#include <GL/gl.h>
+#include <Glee.h>
 #include <GL/glu.h>
-#include "glext.h"
 #include "example.h"
-
-PFNGLGENBUFFERSARBPROC glGenBuffers = NULL;
-PFNGLBINDBUFFERPROC glBindBuffer = NULL;
-PFNGLBUFFERDATAPROC glBufferData = NULL;
 
 Example::Example()
 {
@@ -22,16 +11,6 @@ Example::Example()
 
 bool Example::init()
 {
-#ifdef _WIN32
-    glGenBuffers = (PFNGLGENBUFFERSARBPROC)wglGetProcAddress("glGenBuffers");
-    glBindBuffer = (PFNGLBINDBUFFERPROC)wglGetProcAddress("glBindBuffer");
-    glBufferData = (PFNGLBUFFERDATAPROC)wglGetProcAddress("glBufferData");
-#else
-    glGenBuffers = (PFNGLGENBUFFERSARBPROC)glXGetProcAddress((const GLubyte*)"glGenBuffers");
-    glBindBuffer = (PFNGLBINDBUFFERPROC)glXGetProcAddress((const GLubyte*)"glBindBuffer");
-    glBufferData = (PFNGLBUFFERDATAPROC)glXGetProcAddress((const GLubyte*)"glBufferData");
-#endif
-
     if (!glGenBuffers || !glBindBuffer || !glBufferData)
     {
         std::cerr << "VBOs are not supported by your graphics card" << std::endl;

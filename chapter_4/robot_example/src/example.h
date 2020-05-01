@@ -1,13 +1,13 @@
 #ifndef _EXAMPLE_H
 #define _EXAMPLE_H
 
-#include <GL/gl.h>
 #include <vector>
 #include "robot.h"
+#include <examplecallback.h>
 
 using std::vector;
 
-class Example
+class Example: public ExampleCallback
 {
 public:
     Example();

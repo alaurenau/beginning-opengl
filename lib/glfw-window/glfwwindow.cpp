@@ -7,6 +7,10 @@
 
 ExampleCallback* GlfwWindow::example;
 
+double GlfwWindow::getCurrentTime() {
+    return glfwGetTime();
+}
+
 unsigned int getTickCount() {
     unsigned int ms = (unsigned int)(glfwGetTime() * 1000);
     return ms;

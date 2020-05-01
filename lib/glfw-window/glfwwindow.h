@@ -8,6 +8,8 @@ class GlfwWindow {
 public:
     static void attachExample(ExampleCallback *pExample);
 
+    static double getCurrentTime();
+
     GlfwWindow();
 
     virtual ~GlfwWindow();

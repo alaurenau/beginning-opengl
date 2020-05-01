@@ -1,16 +1,11 @@
 #ifndef BOGLGP_ROBOT_HEADER
 #define BOGLGP_ROBOT_HEADER
 
-#include <GL/gl.h>
+#include <GLee.h>
 #include <GL/glu.h>
-#include "glext.h"
 
 #include <vector>
 using std::vector;
-
-extern PFNGLGENBUFFERSARBPROC glGenBuffers;
-extern PFNGLBINDBUFFERPROC glBindBuffer;
-extern PFNGLBUFFERDATAPROC glBufferData;
 
 #pragma pack(push, 1)
 

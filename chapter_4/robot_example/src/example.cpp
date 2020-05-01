@@ -1,11 +1,5 @@
-#ifdef _WIN32
-#include <windows.h>
-#endif
-
-
-#include <GL/gl.h>
+#include <GLee.h>
 #include <GL/glu.h>
-#include "glext.h"
 #include "example.h"
 
 

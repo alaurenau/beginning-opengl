@@ -4,19 +4,10 @@ SET(APP_NAME square_translation)
 
 PROJECT(${APP_NAME})
 
-IF(WIN32)
-    SET(SOURCE_FILES 
-        src/main.cpp
-        src/example.cpp
-        src/glwindow.cpp
-    )
-ELSE(WIN32)
-    SET(SOURCE_FILES 
-        src/main.cpp
-        src/example.cpp
-        src/glxwindow.cpp
-    )
-ENDIF(WIN32)
+SET(SOURCE_FILES
+		src/main.cpp
+		src/example.cpp
+		)
 
 LINK_DIRECTORIES( ${PROJECT_SOURCE_DIR}/lib )
 INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include )

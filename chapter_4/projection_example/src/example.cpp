@@ -1,24 +1,12 @@
-#ifdef _WIN32
-#include <windows.h>
-#include "glwindow.h"
-#else
-#include <GL/glx.h>
-#include "glxwindow.h"
-#endif
-
 #include <iostream>
-#include <GL/gl.h>
+#include <GLee.h>
 #include <GL/glu.h>
-#include "glext.h"
 #include "example.h"
+#include <glfwwindow.h>
 
 
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
-
-PFNGLGENBUFFERSARBPROC glGenBuffers = NULL;
-PFNGLBINDBUFFERPROC glBindBuffer = NULL;
-PFNGLBUFFERDATAPROC glBufferData = NULL;
 
 Example::Example()
 {
@@ -120,16 +108,6 @@ void Example::renderCube()
 
 bool Example::init()
 {
-#ifdef _WIN32
-    glGenBuffers = (PFNGLGENBUFFERSARBPROC)wglGetProcAddress("glGenBuffers");
-    glBindBuffer = (PFNGLBINDBUFFERPROC)wglGetProcAddress("glBindBuffer");
-    glBufferData = (PFNGLBUFFERDATAPROC)wglGetProcAddress("glBufferData");
-#else
-    glGenBuffers = (PFNGLGENBUFFERSARBPROC)glXGetProcAddress((const GLubyte*)"glGenBuffers");
-    glBindBuffer = (PFNGLBINDBUFFERPROC)glXGetProcAddress((const GLubyte*)"glBindBuffer");
-    glBufferData = (PFNGLBUFFERDATAPROC)glXGetProcAddress((const GLubyte*)"glBufferData");
-#endif
-
     if (!glGenBuffers || !glBindBuffer || !glBufferData)
     {
         std::cerr << "VBOs are not supported by your graphics card" << std::endl;
@@ -150,15 +128,10 @@ bool Example::init()
 
 void Example::prepare(float dt)
 {
-#ifdef _WIN32
-    static float lastTimeSpacePressed = GLWindow::getCurrentTime();
-    float currentTime = GLWindow::getCurrentTime(); //Get the current time
-#else
-    static float lastTimeSpacePressed = SimpleGLXWindow::getCurrentTime();
-    float currentTime = SimpleGLXWindow::getCurrentTime(); //Get the current time
-#endif
+    static float lastTimeSpacePressed = GlfwWindow::getCurrentTime();
+    float currentTime = GlfwWindow::getCurrentTime(); //Get the current time
 
-    const float keyWait = 300.0f; //How long before we allow another key press to register
+    const float keyWait = 0.3f; //How long before we allow another key press to register
 
 
     /*
@@ -168,11 +141,7 @@ void Example::prepare(float dt)
      too quickly because several frames may pass during the
      time the key is pressed down
     */
-#ifdef _WIN32
-    bool spaceBarPressed = GLWindow::isKeyPressed(VK_SPACE);
-#else
-    bool spaceBarPressed = SimpleGLXWindow::isKeyPressed(XK_space);
-#endif
+    bool spaceBarPressed = m_window->keyHeldDown(GLFW_KEY_SPACE);
 
     if (spaceBarPressed &&
         currentTime > (lastTimeSpacePressed + keyWait)) {

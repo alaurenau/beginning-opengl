@@ -24,12 +24,12 @@ add_subdirectory(chapter_3/simple_line)
 add_subdirectory(chapter_3/simple_point)
 add_subdirectory(chapter_3/simple_triangle)
 
-#add_subdirectory(chapter_4/projection_example)
-#add_subdirectory(chapter_4/robot_example)
-#add_subdirectory(chapter_4/square_rotation)
-#add_subdirectory(chapter_4/square_scaling)
-#add_subdirectory(chapter_4/square_translation)
-#
+add_subdirectory(chapter_4/projection_example)
+add_subdirectory(chapter_4/robot_example)
+add_subdirectory(chapter_4/square_rotation)
+add_subdirectory(chapter_4/square_scaling)
+add_subdirectory(chapter_4/square_translation)
+
 #add_subdirectory(chapter_5/terrain_extensions_glee)
 #add_subdirectory(chapter_5/terrain_extensions_manual)
 #

@@ -3,6 +3,8 @@
 
 #include <GL/gl.h>
 #include <vector>
+#include <examplecallback.h>
+#include <glfwwindow.h>
 
 using std::vector;
 
@@ -26,7 +28,7 @@ struct Color {
     }
 };
 
-class Example 
+class Example: public ExampleCallback
 {
 public:
     Example();
@@ -37,6 +39,8 @@ public:
     void shutdown();
 
     void onResize(int width, int height);
+
+    GlfwWindow* m_window;
 
 private:
     void initializeCube();
