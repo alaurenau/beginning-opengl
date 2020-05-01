@@ -5,13 +5,14 @@
 #include <string>
 #include <GL/gl.h>
 #include <GL/glu.h>
+#include <examplecallback.h>
 #include "glext.h"
 #include "terrain.h"
 
 using std::vector;
 using std::string;
 
-class Example 
+class Example: public ExampleCallback
 {
 public:
     Example();

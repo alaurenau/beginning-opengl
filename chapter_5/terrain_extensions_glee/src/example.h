@@ -7,12 +7,13 @@
 
 #include <vector>
 #include <string>
+#include <examplecallback.h>
 #include "terrain.h"
 
 using std::vector;
 using std::string;
 
-class Example
+class Example: public ExampleCallback
 {
 public:
     Example();
