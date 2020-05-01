@@ -28,17 +28,17 @@ public:
 
     void setWindowCaption(const char* title);
 
-    bool keyPressed(int);
-
     bool keyHeldDown(int);
-private:
+
+    bool mouseButtonPressed(int);
+
+    GLFWwindow* window;
+
     static ExampleCallback* example;
 
     static void glfwResizeCallback(GLFWwindow* window, int width, int height);
 
     static void glfwCloseCallback(GLFWwindow* window, int key, int scanCode, int action, int mode);
-
-    GLFWwindow* window;
 
     unsigned int m_lastTime;
 };

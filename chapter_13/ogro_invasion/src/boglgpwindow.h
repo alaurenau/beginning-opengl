@@ -2,11 +2,10 @@
 #define BOGLGPWINDOW_H_INCLUDED
 
 #include "uncopyable.h"
+#include "example.h"
 
 class KeyboardInterface;
 class MouseInterface;
-
-class Example;
 
 class BOGLGPWindow : private Uncopyable {
 public:
@@ -19,8 +18,8 @@ public:
     virtual bool isRunning() = 0;
     virtual void swapBuffers() = 0;
     virtual float getElapsedSeconds() = 0;
-    virtual KeyboardInterface* getKeyboard() const = 0;
-    virtual MouseInterface* getMouse() const = 0;
+    virtual KeyboardInterface* getKeyboard() = 0;
+    virtual MouseInterface* getMouse() = 0;
 };
 
 #endif // BOGLGPWINDOW_H_INCLUDED

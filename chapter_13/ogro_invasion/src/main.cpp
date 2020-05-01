@@ -3,13 +3,11 @@
 
 #ifdef _WIN32
 #include <windows.h>
-#include "glwindow.h"
-#else
-#include "glxwindow.h"
 #endif
 
 #include "example.h"
 #include <glfwwindow.h>
+#include "window/glfwwindowwrapper.h"
 
 #ifdef _WIN32
 int WINAPI WinMain(HINSTANCE hInstance,
@@ -27,15 +25,14 @@ int main(int argc, char** argv)
     bool windowFullscreen = false;
 
     //This is our window
-#ifdef _WIN32
-    GLWindow programWindow(hInstance);
+    GlfwWindow glfwWindow;
+    GlfwWindowAdapter programWindow(&glfwWindow);
 
+#ifdef _WIN32
     if (MessageBox(NULL, "Would you like to run in fullscreen mode?", "Fullscreen?", MB_ICONINFORMATION | MB_YESNO) == IDYES)
     {
         windowFullscreen = true;
     }
-#else
-    SimpleGLXWindow programWindow;
 #endif
 
     //The example OpenGL code

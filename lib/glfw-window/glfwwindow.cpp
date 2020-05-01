@@ -84,10 +84,10 @@ void GlfwWindow::setWindowCaption(const char* title) {
     glfwSetWindowTitle(window, title);
 }
 
-bool GlfwWindow::keyPressed(int key) {
+bool GlfwWindow::keyHeldDown(int key) {
     return glfwGetKey(window, key) == GLFW_PRESS;
 }
 
-bool GlfwWindow::keyHeldDown(int key) {
-    return glfwGetKey(window, key) == GLFW_PRESS;
+bool GlfwWindow::mouseButtonPressed(int key) {
+    return glfwGetMouseButton(window, key) == GLFW_PRESS;
 }

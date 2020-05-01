@@ -6,54 +6,31 @@ PROJECT(${APP_NAME})
 
 IF(WIN32)
     ADD_DEFINITIONS(-D_WIN32)
-    SET(SOURCE_FILES 
-        src/main.cpp
-        src/example.cpp
-        src/glwindow.cpp
-		src/targa.cpp
-		src/camera.cpp
-		src/collider.cpp
-		src/enemy.cpp
-		src/entity.cpp
-		src/explosion.cpp
-		src/freetypefont.cpp
-		src/frustum.cpp
-		src/gameworld.cpp
-		src/landscape.cpp
-		src/md2model.cpp
-		src/ogro.cpp
-		src/player.cpp
-		src/rocket.cpp
-		src/spherecollider.cpp
-		src/terrain.cpp
-		src/terraincollider.cpp
-		src/tree.cpp
-    )
-ELSE(WIN32)
-    SET(SOURCE_FILES 
-        src/main.cpp
-        src/example.cpp
-        src/glxwindow.cpp
-		src/targa.cpp
-		src/camera.cpp
-		src/collider.cpp
-		src/enemy.cpp
-		src/entity.cpp
-		src/explosion.cpp
-		src/freetypefont.cpp
-		src/frustum.cpp
-		src/gameworld.cpp
-		src/landscape.cpp
-		src/md2model.cpp
-		src/ogro.cpp
-		src/player.cpp
-		src/rocket.cpp
-		src/spherecollider.cpp
-		src/terrain.cpp
-		src/terraincollider.cpp
-		src/tree.cpp
-    )
 ENDIF(WIN32)
+
+SET(SOURCE_FILES
+	src/main.cpp
+	src/example.cpp
+	src/targa.cpp
+	src/camera.cpp
+	src/collider.cpp
+	src/enemy.cpp
+	src/entity.cpp
+	src/explosion.cpp
+	src/freetypefont.cpp
+	src/frustum.cpp
+	src/gameworld.cpp
+	src/landscape.cpp
+	src/md2model.cpp
+	src/ogro.cpp
+	src/player.cpp
+	src/rocket.cpp
+	src/spherecollider.cpp
+	src/terrain.cpp
+	src/terraincollider.cpp
+	src/tree.cpp
+	src/window/glfwwindowwrapper.cpp
+)
 
 IF(WIN32)
 	INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/src/freetype/include ${PROJECT_SOURCE_DIR}/src/freetype/include/freetype2)

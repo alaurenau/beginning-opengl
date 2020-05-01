@@ -6,11 +6,15 @@
 #endif
 
 #include "keyboardinterface.h"
+#include <glfwwindow.h>
 
 class WIN32KeyboardInterface : public KeyboardInterface
 {
 public:
-    WIN32KeyboardInterface()
+
+    static WIN32KeyboardInterface* keyboardInterface;
+
+    WIN32KeyboardInterface(GlfwWindow* glfwWindow): window(glfwWindow)
     {
         for (int i = 0; i < KC_MAX_KEYS; ++i) {
             m_keyState[i] = 0;
@@ -42,33 +46,24 @@ public:
     {
         switch(code)
         {
-        case VK_UP:
+        case GLFW_KEY_UP:
             return KC_UP;
-        break;
-        case VK_DOWN:
+        case GLFW_KEY_DOWN:
             return KC_DOWN;
-        break;
-        case VK_LEFT:
+        case GLFW_KEY_LEFT:
             return KC_LEFT;
-        break;
-        case VK_RIGHT:
+        case GLFW_KEY_RIGHT:
             return KC_RIGHT;
-        break;
-        case 'W':
+        case GLFW_KEY_W:
             return KC_w;
-        break;
-        case 'S':
+        case GLFW_KEY_S:
             return KC_s;
-        break;
-        case 'A':
+        case GLFW_KEY_A:
             return KC_a;
-        break;
-        case 'D':
+        case GLFW_KEY_D:
             return KC_d;
-        break;
-        case VK_SPACE:
+        case GLFW_KEY_SPACE:
             return KC_SPACE;
-        break;
         default:
             return KC_INVALID;
         }
@@ -79,7 +74,24 @@ public:
         memcpy(m_lastKeyState, m_keyState, sizeof(short) * KC_MAX_KEYS);
     }
 
+    static void glfwKeyboardCallback(GLFWwindow* window, int key, int scanCode, int action, int mode) {
+        if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
+            glfwSetWindowShouldClose(window, GL_TRUE);
+            return;
+        }
+        if (action == GLFW_PRESS) {
+            WIN32KeyboardInterface::keyboardInterface->handleKeyDown(
+                    WIN32KeyboardInterface::keyboardInterface->translateKey(key));
+        }
+        if (action == GLFW_RELEASE) {
+            WIN32KeyboardInterface::keyboardInterface->handleKeyUp(
+                    WIN32KeyboardInterface::keyboardInterface->translateKey(key));
+        }
+    }
+
+
 private:
+    GlfwWindow* window;
     short m_keyState[KC_MAX_KEYS];
     short m_lastKeyState[KC_MAX_KEYS];
 };
