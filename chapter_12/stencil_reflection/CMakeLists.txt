@@ -14,7 +14,6 @@ SET(SOURCE_FILES
 	src/plane.cpp
 	src/targa.cpp
 	src/sphere.cpp
-	src/glee/GLee.c
 )
 
 LINK_DIRECTORIES( ${PROJECT_SOURCE_DIR}/lib )

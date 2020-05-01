@@ -1,6 +1,8 @@
 #ifndef _EXAMPLE_H
 #define _EXAMPLE_H
 
+#include <glfwwindow.h>
+
 class TextureMappedFont;
 
 class Example: public ExampleCallback

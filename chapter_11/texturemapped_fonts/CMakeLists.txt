@@ -6,24 +6,14 @@ PROJECT(${APP_NAME})
 
 IF(WIN32)
 	ADD_DEFINITIONS(-D_WIN32)
-    SET(SOURCE_FILES 
+ENDIF(WIN32)
+
+SET(SOURCE_FILES
         src/main.cpp
         src/example.cpp
-        src/glwindow.cpp
 		src/targa.cpp
 		src/texturemappedfont.cpp
-		src/glee/GLee.c
     )
-ELSE(WIN32)
-    SET(SOURCE_FILES 
-		src/main.cpp
-		src/texturemappedfont.cpp
-		src/targa.cpp
-        src/example.cpp
-        src/glxwindow.cpp
-		src/glee/GLee.c
-    )
-ENDIF(WIN32)
 
 IF(WIN32)
 	ADD_EXECUTABLE(${APP_NAME} WIN32 ${SOURCE_FILES})

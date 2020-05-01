@@ -1,6 +1,8 @@
 #ifndef _EXAMPLE_H
 #define _EXAMPLE_H
 
+#include <glfwwindow.h>
+
 class FreeTypeFont;
 
 class Example: public ExampleCallback

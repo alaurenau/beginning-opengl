@@ -8,6 +8,7 @@
 #endif
 
 #include "example.h"
+#include <glfwwindow.h>
 
 #ifdef _WIN32
 int WINAPI WinMain(HINSTANCE hInstance,
