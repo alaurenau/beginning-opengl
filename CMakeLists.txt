@@ -7,7 +7,8 @@ option(GLFW_BUILD_DOCS OFF)
 option(GLFW_INSTALL OFF)
 add_subdirectory(lib/glfw)
 
-include_directories(lib/glfw/include)
+include_directories(lib/glfw/include lib/glfw-window)
+add_library(glfw-window lib/glfw-window/glfwwindow.cpp lib/glfw-window/examplecallback.h)
 
 add_subdirectory(chapter_1/simple)
 

@@ -1,7 +1,9 @@
 #ifndef _EXAMPLE_H
 #define _EXAMPLE_H
 
-class Example 
+#include <examplecallback.h>
+
+class Example: public ExampleCallback
 {
 public:
     Example();

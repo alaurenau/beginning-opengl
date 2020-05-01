@@ -1,15 +1,11 @@
 #define WIN32_LEAN_AND_MEAN
 #define WIN32_EXTRA_LEAN
 
-#define GLX_GLXEXT_LEGACY //Must be declared so that our local glxext.h is picked up, rather than the system one
-
 #ifdef _WIN32
 #include <windows.h>
-#include "glwindow.h"
-#else
-#include "glxwindow.h"
 #endif
 
+#include <glfwwindow.h>
 #include "example.h"
 
 #ifdef _WIN32
@@ -28,12 +24,8 @@ int main(int argc, char** argv)
     const int windowBPP = 16;
     const int windowFullscreen = false;
 
-#ifdef _WIN32
     //This is our window
-    GLWindow programWindow(hInstance);
-#else
-    SimpleGLXWindow programWindow;
-#endif
+    GlfwWindow programWindow;
 
     //The example OpenGL code
     Example example;

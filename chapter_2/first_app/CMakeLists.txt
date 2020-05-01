@@ -6,18 +6,11 @@ PROJECT(${APP_NAME})
 
 IF(WIN32)
     ADD_DEFINITIONS(-D_WIN32)
-    SET(SOURCE_FILES 
-        src/main.cpp
-        src/example.cpp
-        src/glwindow.cpp
-    )
-ELSE(WIN32)
-    SET(SOURCE_FILES 
-        src/main.cpp
-        src/example.cpp
-        src/glxwindow.cpp
-    )
 ENDIF(WIN32)
+
+SET(SOURCE_FILES
+		src/main.cpp
+		src/example.cpp)
 
 LINK_DIRECTORIES( ${PROJECT_SOURCE_DIR}/lib )
 INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include )
@@ -35,4 +28,4 @@ ELSE(WIN32)
 	SET(LIBRARIES GL GLU Xxf86vm)
 ENDIF(WIN32)
 
-TARGET_LINK_LIBRARIES(${APP_NAME} ${LIBRARIES})
+TARGET_LINK_LIBRARIES(${APP_NAME} ${LIBRARIES} glfw-window glfw)
