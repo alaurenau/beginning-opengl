@@ -3,7 +3,7 @@
 
 class FreeTypeFont;
 
-class Example 
+class Example: public ExampleCallback
 {
 public:
     Example();

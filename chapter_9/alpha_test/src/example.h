@@ -9,7 +9,7 @@
 #include <string>
 #include "terrain.h"
 #include "targa.h"
-
+#include <examplecallback.h>
 #include "tree.h"
 
 class GLSLProgram;

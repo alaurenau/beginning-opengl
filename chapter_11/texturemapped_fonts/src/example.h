@@ -3,7 +3,7 @@
 
 class TextureMappedFont;
 
-class Example 
+class Example: public ExampleCallback
 {
 public:
     Example();

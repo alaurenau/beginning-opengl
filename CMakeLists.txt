@@ -47,15 +47,15 @@ add_subdirectory(chapter_8/simple_fog)
 add_subdirectory(chapter_8/spot_light)
 add_subdirectory(chapter_8/terrain_lighting)
 
-#add_subdirectory(chapter_9/alpha_test)
-#add_subdirectory(chapter_9/cube_mapping)
-#add_subdirectory(chapter_9/multitexture)
+add_subdirectory(chapter_9/alpha_test)
+add_subdirectory(chapter_9/cube_mapping)
+add_subdirectory(chapter_9/multitexture)
 
 add_subdirectory(chapter_10/frustum_culling)
 
-#add_subdirectory(chapter_11/freetype_fonts)
-#add_subdirectory(chapter_11/texturemapped_fonts)
+add_subdirectory(chapter_11/freetype_fonts)
+add_subdirectory(chapter_11/texturemapped_fonts)
 
 add_subdirectory(chapter_12/stencil_reflection)
 
-#add_subdirectory(chapter_13/ogro_invasion)
+add_subdirectory(chapter_13/ogro_invasion)
