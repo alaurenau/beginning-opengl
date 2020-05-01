@@ -75,3 +75,15 @@ void GlfwWindow::glfwResizeCallback(GLFWwindow* window, int width, int height) {
 void GlfwWindow::attachExample(ExampleCallback *pExample) {
     GlfwWindow::example = pExample;
 }
+
+void GlfwWindow::setWindowCaption(const char* title) {
+    glfwSetWindowTitle(window, title);
+}
+
+bool GlfwWindow::keyPressed(int key) {
+    return glfwGetKey(window, key) == GLFW_PRESS;
+}
+
+bool GlfwWindow::keyHeldDown(int key) {
+    return glfwGetKey(window, key) == GLFW_PRESS;
+}

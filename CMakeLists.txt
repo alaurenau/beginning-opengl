@@ -49,9 +49,9 @@ add_subdirectory(chapter_2/first_app)
 #add_subdirectory(chapter_9/alpha_test)
 #add_subdirectory(chapter_9/cube_mapping)
 #add_subdirectory(chapter_9/multitexture)
-#
-#add_subdirectory(chapter_10/frustum_culling)
-#
+
+add_subdirectory(chapter_10/frustum_culling)
+
 #add_subdirectory(chapter_11/freetype_fonts)
 #add_subdirectory(chapter_11/texturemapped_fonts)
 

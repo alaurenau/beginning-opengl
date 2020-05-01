@@ -15,12 +15,6 @@
 #include "example.h"
 #include "glslshader.h"
 
-#ifdef _WIN32
-#include "glwindow.h"
-#else
-#include "glxwindow.h"
-#endif
-
 Example::Example()
 {
     m_terrainProgram = new GLSLProgram("data/basic-fixed.vert", "data/basic-fixed.frag");
@@ -121,42 +115,22 @@ void Example::prepare(float dt)
     m_model.update(dt);
     updateFPS(dt);
 
-#ifdef _WIN32
-    static int lastPress = GetTickCount();
+    static double lastPress = glfwGetTime();
 
     //If the spacebar was pressed, and >300 milliseconds has passed since the last press
     //then toggle the frustum culling
-    if ((GetAsyncKeyState(VK_SPACE) & 0x8000) && (GetTickCount() - lastPress) > 300)
-    {
+    if (m_window->keyHeldDown(GLFW_KEY_SPACE) && (glfwGetTime() - lastPress) > 0.3) {
         m_frustumCullingEnabled = !m_frustumCullingEnabled;
-        lastPress = GetTickCount();
+        lastPress = glfwGetTime();
     }
 
-    if (GetAsyncKeyState(VK_LEFT) & 0x8000)
-    {
+    if (m_window->keyHeldDown(GLFW_KEY_LEFT)) {
         m_rotationAngle -= 25.0f * dt;
     }
 
-    if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
-    {
+    if (m_window->keyHeldDown(GLFW_KEY_RIGHT)) {
         m_rotationAngle += 25.0f * dt;
     }
-#else
-    if (m_window->keyPressed(XK_space))
-    {
-        m_frustumCullingEnabled = !m_frustumCullingEnabled;
-    }
-
-    if (m_window->keyHeldDown(XK_Left))
-    {
-        m_rotationAngle -= 25.0f * dt;
-    }
-
-    if (m_window->keyHeldDown(XK_Right))
-    {
-        m_rotationAngle += 25.0f * dt;
-    }
-#endif
 }
 
 /**
@@ -272,11 +246,7 @@ void Example::render()
     ss << " - Culling enabled: " << ((m_frustumCullingEnabled)? "Yes" : "No");
     ss << " - FPS: " << std::setprecision(3) << m_FPS;
 
-#ifdef _WIN32
-    m_window->setWindowCaption(ss.str());
-#else
-	m_window->setWindowCaption(ss.str());
-#endif
+    m_window->setWindowCaption(ss.str().c_str());
 }
 
 void Example::shutdown()

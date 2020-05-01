@@ -6,6 +6,8 @@
 
 class GlfwWindow {
 public:
+    static void attachExample(ExampleCallback *pExample);
+
     GlfwWindow();
 
     virtual ~GlfwWindow();
@@ -22,19 +24,21 @@ public:
 
     float getElapsedSeconds();
 
-    static void attachExample(ExampleCallback *pExample);
+    void setWindowCaption(const char* title);
 
+    bool keyPressed(int);
+
+    bool keyHeldDown(int);
 private:
-    GLFWwindow* window;
-
     static ExampleCallback* example;
-
-    unsigned int m_lastTime;
 
     static void glfwResizeCallback(GLFWwindow* window, int width, int height);
 
     static void glfwCloseCallback(GLFWwindow* window, int key, int scanCode, int action, int mode);
 
+    GLFWwindow* window;
+
+    unsigned int m_lastTime;
 };
 
 #endif //BEGINNING_OPENGL_GLFWWINDOW_H

@@ -14,19 +14,14 @@
 #include "tree.h"
 #include "monster.h"
 #include "frustum.h"
+#include <glfwwindow.h>
 
 class GLSLProgram; 
-
-#ifdef _WIN32
-	class GLWindow;
-#else
-	class SimpleGLXWindow;
-#endif
 
 using std::vector;
 using std::string;
 
-class Example 
+class Example: public ExampleCallback
 {
 public:
     Example();
@@ -43,15 +38,9 @@ public:
     
     void positionMonsters(int numMonsters);
 
-#ifdef _WIN32
-    void setWindow(GLWindow* window) {
+    void setWindow(GlfwWindow* window) {
         m_window = window;
     }
-#else
-    void setWindow(SimpleGLXWindow* window) {
-        m_window = window;
-    }
-#endif
 
 private:
     Terrain m_terrain;
@@ -68,11 +57,7 @@ private:
 
     Frustum m_frustum;
 
-#ifdef _WIN32
-    GLWindow* m_window;
-#else
-	SimpleGLXWindow* m_window;
-#endif
+    GlfwWindow* m_window;
 
     bool m_frustumCullingEnabled;
 
