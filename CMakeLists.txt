@@ -7,22 +7,23 @@ option(GLFW_BUILD_DOCS OFF)
 option(GLFW_INSTALL OFF)
 add_subdirectory(lib/glfw)
 
-include_directories(lib/glfw/include lib/glfw-window)
+include_directories(lib/glfw/include lib/glfw-window lib/glee)
 add_library(glfw-window lib/glfw-window/glfwwindow.cpp lib/glfw-window/examplecallback.h)
+add_library(glee lib/glee/GLee.c)
 
 add_subdirectory(chapter_1/simple)
 
 add_subdirectory(chapter_2/first_app)
 
-#add_subdirectory(chapter_3/draw_arrays)
-#add_subdirectory(chapter_3/lines)
-#add_subdirectory(chapter_3/pointy_example)
-#add_subdirectory(chapter_3/polygon_mode)
-#add_subdirectory(chapter_3/shared_vertices)
-#add_subdirectory(chapter_3/simple_line)
-#add_subdirectory(chapter_3/simple_point)
-#add_subdirectory(chapter_3/simple_triangle)
-#
+add_subdirectory(chapter_3/draw_arrays)
+add_subdirectory(chapter_3/lines)
+add_subdirectory(chapter_3/pointy_example)
+add_subdirectory(chapter_3/polygon_mode)
+add_subdirectory(chapter_3/shared_vertices)
+add_subdirectory(chapter_3/simple_line)
+add_subdirectory(chapter_3/simple_point)
+add_subdirectory(chapter_3/simple_triangle)
+
 #add_subdirectory(chapter_4/projection_example)
 #add_subdirectory(chapter_4/robot_example)
 #add_subdirectory(chapter_4/square_rotation)

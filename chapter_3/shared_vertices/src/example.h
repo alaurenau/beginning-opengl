@@ -3,10 +3,11 @@
 
 #include <GL/gl.h>
 #include <vector>
+#include <examplecallback.h>
 
 using std::vector;
 
-class Example 
+class Example: public ExampleCallback
 {
 public:
     Example();

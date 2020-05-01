@@ -1,11 +1,7 @@
-#ifdef _WIN32
-#include <windows.h>
-#else
-#include <GL/glx.h>
-#endif
-
 #include <iostream>
+#include <GLee.h>
 #include <GL/glu.h>
+
 #include "example.h"
 
 Example::Example()
