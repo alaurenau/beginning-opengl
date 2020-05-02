@@ -2,7 +2,7 @@
 #define WIN32_MOUSE_INTERFACE
 
 #include <cassert>
-
+#include <cstring>
 #include "mouseinterface.h"
 #include "glfwwindow.h"
 #include <GLFW/glfw3.h>

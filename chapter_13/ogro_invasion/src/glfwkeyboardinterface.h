@@ -1,6 +1,7 @@
 #ifndef WIN32_KEYBOARD_INTERFACE
 #define WIN32_KEYBOARD_INTERFACE
 
+#include <cstring>
 #include "keyboardinterface.h"
 #include <glfwwindow.h>
 
