@@ -2,16 +2,15 @@
 #define WIN32_MOUSE_INTERFACE
 
 #include <cassert>
-#include <windows.h>
 
 #include "mouseinterface.h"
 #include "glfwwindow.h"
 #include <GLFW/glfw3.h>
 
-class WIN32MouseInterface : public MouseInterface
+class GlfgMouseInterface : public MouseInterface
 {
 public:
-    WIN32MouseInterface(GlfwWindow* glfwWindow): window(glfwWindow) {};
+    GlfgMouseInterface(GlfwWindow* glfwWindow): window(glfwWindow) {};
 
     virtual void getMousePos(int& x, int& y)
     {

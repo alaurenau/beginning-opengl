@@ -10,7 +10,7 @@
 class GlfwWindowAdapter: public BOGLGPWindow {
 public:
     GlfwWindowAdapter(GlfwWindow* window): m_window(window), m_keyboard(window), m_mouse(window) {
-        WIN32KeyboardInterface::keyboardInterface = &m_keyboard;
+        GlfwKeyboardInterface::keyboardInterface = &m_keyboard;
     };
 
     virtual bool create(int width, int height, int bpp, bool fullscreen, const char* title);
@@ -24,6 +24,6 @@ public:
     MouseInterface* getMouse() { return &m_mouse; }
 
     GlfwWindow* m_window;
-    WIN32KeyboardInterface m_keyboard;
-    WIN32MouseInterface m_mouse;
+    GlfwKeyboardInterface m_keyboard;
+    GlfgMouseInterface m_mouse;
 };

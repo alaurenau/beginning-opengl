@@ -1,20 +1,16 @@
 #ifndef WIN32_KEYBOARD_INTERFACE
 #define WIN32_KEYBOARD_INTERFACE
 
-#ifdef _WIN32
-#include <windows.h>
-#endif
-
 #include "keyboardinterface.h"
 #include <glfwwindow.h>
 
-class WIN32KeyboardInterface : public KeyboardInterface
+class GlfwKeyboardInterface : public KeyboardInterface
 {
 public:
 
-    static WIN32KeyboardInterface* keyboardInterface;
+    static GlfwKeyboardInterface* keyboardInterface;
 
-    WIN32KeyboardInterface(GlfwWindow* glfwWindow): window(glfwWindow)
+    GlfwKeyboardInterface(GlfwWindow* glfwWindow): window(glfwWindow)
     {
         for (int i = 0; i < KC_MAX_KEYS; ++i) {
             m_keyState[i] = 0;
@@ -80,12 +76,12 @@ public:
             return;
         }
         if (action == GLFW_PRESS) {
-            WIN32KeyboardInterface::keyboardInterface->handleKeyDown(
-                    WIN32KeyboardInterface::keyboardInterface->translateKey(key));
+            GlfwKeyboardInterface::keyboardInterface->handleKeyDown(
+                    GlfwKeyboardInterface::keyboardInterface->translateKey(key));
         }
         if (action == GLFW_RELEASE) {
-            WIN32KeyboardInterface::keyboardInterface->handleKeyUp(
-                    WIN32KeyboardInterface::keyboardInterface->translateKey(key));
+            GlfwKeyboardInterface::keyboardInterface->handleKeyUp(
+                    GlfwKeyboardInterface::keyboardInterface->translateKey(key));
         }
     }
 

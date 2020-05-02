@@ -1,10 +1,10 @@
 #include "glfwwindowwrapper.h"
 
-WIN32KeyboardInterface* WIN32KeyboardInterface::keyboardInterface;
+GlfwKeyboardInterface* GlfwKeyboardInterface::keyboardInterface;
 
 bool GlfwWindowAdapter::create(int width, int height, int bpp, bool fullscreen, const char* title) {
     bool result = m_window->create(width, height, bpp, fullscreen, title);
-    glfwSetKeyCallback(m_window->window, WIN32KeyboardInterface::glfwKeyboardCallback);
+    glfwSetKeyCallback(m_window->window, GlfwKeyboardInterface::glfwKeyboardCallback);
     return result;
 }
 
