@@ -144,25 +144,32 @@ private:
 
         if (!result)
         {
-            std::cout << "Could not compile shader: " << shader.id << std::endl;
-            outputShaderLog(shader.id);
+            std::cout << "Could not compile shader: " << shader.filename << std::endl;
+            outputShaderLog(shader);
             return false;
         }
 
         return true;
     }
 
-    void outputShaderLog(unsigned int shaderID)
+    void outputShaderLog(const GLSLShader& shader)
     {
         vector<char> infoLog;
         GLint infoLen;
-		glGetShaderiv(shaderID, GL_INFO_LOG_LENGTH, &infoLen);
-		infoLog.resize(infoLen);
-		
+        glGetShaderiv(shader.id, GL_INFO_LOG_LENGTH, &infoLen);
+        infoLog.resize(infoLen);
+
         std::cerr << "GLSL Shader: Shader contains errors, please validate this shader!" << std::endl;
-        glGetShaderInfoLog(shaderID, sizeof(infoLog), &infoLen, &infoLog[0]);
-        
-        std::cerr << string(infoLog.begin(), infoLog.end()) << std::endl;
+        glGetShaderInfoLog(shader.id, infoLog.size(), &infoLen, infoLog.data());
+
+        std::cerr << infoLog.data() << std::endl;
+#ifdef _WIN32
+        vector<char> output;
+        output.resize(infoLen + 50 + shader.filename.size());
+        sprintf(output.data(), "Errors in shader: %s\n\n%s", shader.filename.c_str(), infoLog.data());
+        MessageBox(NULL, output.data(), "Error", MB_OK);
+#endif
+
     }
 
     GLSLShader m_vertexShader;
