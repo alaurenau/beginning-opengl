@@ -25,3 +25,11 @@ ELSE(WIN32)
 ENDIF(WIN32)
 
 TARGET_LINK_LIBRARIES(${APP_NAME} glee glfw-window glfw ${LIBRARIES})
+
+ADD_CUSTOM_TARGET(
+		${APP_NAME}-data ALL
+		COMMAND ${CMAKE_COMMAND} -E copy_directory
+		${CMAKE_CURRENT_SOURCE_DIR}/data
+		${CMAKE_CURRENT_BINARY_DIR}/data)
+
+add_dependencies(${APP_NAME} ${APP_NAME}-data)

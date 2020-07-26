@@ -8,7 +8,7 @@ Unofficial source code rework. Should be cross platform.
 * GLFW
 * Dependencies as git submodules
 * No platform dependencies
-* No OpneGL code changes
+* No OpenGL code changes
 
 Usage:
 
@@ -17,12 +17,11 @@ Usage:
     mkdir build
     cd build
     cmake ..
-    make ogro_invasion
-    cp -r ../chapter_13/ogro_invasion/data ./chapter_13/ogro_invasion/data 
-    cd ./chapter_13/ogro_invasion/
-    ./chapter_13/ogro_invasion/
+    cmake --build .
+    cd chapter_13/ogro_invasion/
+    .ogro_invasion
 
 Tested on:
-* MinGW GCC
-* MSVC
-* Ubuntu 20.04 GCC
+* MinGW GCC 9.3.0
+* MSVC 2019
+* Ubuntu 20.04 GCC 9.3.0
