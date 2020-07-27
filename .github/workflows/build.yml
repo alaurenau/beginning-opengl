@@ -38,7 +38,11 @@ jobs:
         buildDirectory: build
         cmakeBuildType: Release
         cmakeGenerator: ${{ matrix.generator }}
-
+        
+    - name: copy binary
+      if: contains( matrix.os, 'windows')
+      run: "cp build/Release/ogro_invasion.exe build 2>/dev/null || :"
+  
     - name: release orgo invasion
       uses: actions/upload-artifact@v2
       with:
