@@ -1,5 +1,7 @@
 # Beginning OpenGL Game Programming, Second Edition Source Code Rework
 
+![CI](https://github.com/alaurenau/beginning-opengl/workflows/CI/badge.svg)
+
 https://www.amazon.com/Beginning-OpenGL-Game-Programming-Second/dp/159863528X
 
 Unofficial source code rework. Should be cross platform.

@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch: []
+   
+
+jobs:
+  build:
+    name: build-${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        include:
+          - os: windows-latest
+            name: windows
+            generator: VS16Win64 
+          - os: ubuntu-latest
+            name: ubuntu
+            generator: Ninja
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+
+    - name: install ubuntu opengl dependencies
+      if: contains( matrix.os, 'ubuntu')
+      run: sudo apt-get install xorg-dev libglu1-mesa-dev
+
+    - name: build with cmake
+      uses: lukka/run-cmake@v2
+      with:
+        buildDirectory: build
+        cmakeBuildType: Release
+        cmakeGenerator: ${{ matrix.generator }}
+
+    - name: copy windows binary for release
+      if: contains( matrix.os, 'windows')
+      run: cp build/chapter_13/ogro_invasion/Release/ogro_invasion.exe build/chapter_13/ogro_invasion
+
+    - name: release orgo invasion
+      uses: actions/upload-artifact@v2
+      with:
+        name: ogro_invasion_${{ matrix.name }}
+        path: |
+          build/chapter_13/ogro_invasion/data
+          build/chapter_13/ogro_invasion/ogro_invasion
+          build/chapter_13/ogro_invasion/ogro_invasion.exe
