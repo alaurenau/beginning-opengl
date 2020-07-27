@@ -38,11 +38,12 @@ jobs:
         buildDirectory: build
         cmakeBuildType: Release
         cmakeGenerator: ${{ matrix.generator }}
+
     - name: release orgo invasion
       uses: actions/upload-artifact@v2
       with:
+        run: "cp build/Release/ogro_invasion.exe build 2>/dev/null || :"
         name: ogro_invasion_${{ matrix.name }}
         path: |
           build/chapter_13/ogro_invasion/data
-          build/chapter_13/ogro_invasion/ogro_invasion
-          build/chapter_13/ogro_invasion/Release/ogro_invasion.exe
+          build/chapter_13/ogro_invasion/ogro_invasion*
