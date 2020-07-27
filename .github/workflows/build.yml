@@ -18,15 +18,17 @@ jobs:
         include:
           - os: windows-latest
             name: windows
+            generator: VS16Win64 
           - os: ubuntu-latest
             name: ubuntu
+            generator: Ninja
     
     steps:
     - uses: actions/checkout@v2
       with:
         submodules: true
         
-    - name: install dependencies
+    - name: install ubuntu opengl dependencies
       if: contains( matrix.os, 'ubuntu')
       run: sudo apt-get install xorg-dev libglu1-mesa-dev
     
@@ -36,10 +38,13 @@ jobs:
         buildWithCMakeArgs: '-- -v'
         buildDirectory: build
         cmakeBuildType: Release
+        cmakeGenerator: ${{ matrix.generator }}
     - name: release orgo invasion
       uses: actions/upload-artifact@v2
       with:
-        name: ogro_invasion_${{ matrix.config.name }}
+        name: ogro_invasion_${{ matrix.name }}
         path: |
           build/chapter_13/ogro_invasion/data
-          build/chapter_13/ogro_invasion/ogro_invasion*
+          build/chapter_13/ogro_invasion/ogro_invasion
+          build/chapter_13/ogro_invasion/Release/ogro_invasion.exe
+          build
