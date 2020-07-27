@@ -33,14 +33,14 @@ jobs:
       if: contains( matrix.os, 'ubuntu')
       run: sudo apt-get install xorg-dev libglu1-mesa-dev
 
-    - name: run cmake
+    - name: build with cmake
       uses: lukka/run-cmake@v2
       with:
         buildDirectory: build
         cmakeBuildType: Release
         cmakeGenerator: ${{ matrix.generator }}
 
-    - name: copy binary
+    - name: copy windows binary for release
       if: contains( matrix.os, 'windows')
       run: cp build/chapter_13/ogro_invasion/Release/ogro_invasion.exe build/chapter_13/ogro_invasion
 
