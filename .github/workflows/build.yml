@@ -9,13 +9,25 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    name: build-${ { matrix.config.name } }
+    runs-on: ${ { matrix.config.os } }
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        include:
+          - os: windows-latest
+            name: windows
+          - os: ubuntu-latest
+            name: ubuntu
+    
     steps:
     - uses: actions/checkout@v2
       with:
         submodules: true
         
     - name: install dependencies
+      if: contains( matrix.os, 'ubuntu')
       run: sudo apt-get install xorg-dev libglu1-mesa-dev
     
     - name: run cmake
@@ -23,11 +35,11 @@ jobs:
       with:
         buildWithCMakeArgs: '-- -v'
         buildDirectory: build
-
+        cmakeBuildType: Release
     - name: release orgo invasion
       uses: actions/upload-artifact@v2
       with:
-        name: ogro_invasion
+        name: ogro_invasion_${ { matrix.config.name } }
         path: |
           build/chapter_13/ogro_invasion/data
-          build/chapter_13/ogro_invasion/ogro_invasion
+          build/chapter_13/ogro_invasion/ogro_invasion*
