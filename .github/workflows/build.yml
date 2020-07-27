@@ -9,11 +9,14 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
       with:
         submodules: true
+        
+    - name: install dependencies
+      run: apt-get install xorg-dev libglu1-mesa-dev
     
     - name: run cmake
       uses: lukka/run-cmake@v2
