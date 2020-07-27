@@ -23,3 +23,8 @@ jobs:
       with:
         buildWithCMakeArgs: '-- -v'
         buildDirectory: '${{ runner.workspace }}/build/'
+
+    - name: release artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        path: build
