@@ -50,4 +50,5 @@ jobs:
         name: ogro_invasion_${{ matrix.name }}
         path: |
           build/chapter_13/ogro_invasion/data
-          build/chapter_13/ogro_invasion/ogro_invasion*
+          build/chapter_13/ogro_invasion/ogro_invasion
+          build/chapter_13/ogro_invasion/ogro_invasion.exe
