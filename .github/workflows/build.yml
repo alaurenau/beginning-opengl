@@ -9,8 +9,8 @@ on:
 
 jobs:
   build:
-    name: build-${ { matrix.config.name } }
-    runs-on: ${ { matrix.config.os } }
+    name: build-${ { matrix.name } }
+    runs-on: ${ { matrix.os } }
     strategy:
       fail-fast: false
       matrix:
