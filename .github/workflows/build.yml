@@ -22,7 +22,7 @@ jobs:
       uses: lukka/run-cmake@v2
       with:
         buildWithCMakeArgs: '-- -v'
-        buildDirectory: '${{ runner.workspace }}/build/'
+        buildDirectory: build
 
     - name: release artifacts
       uses: actions/upload-artifact@v2
