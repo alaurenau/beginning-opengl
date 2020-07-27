@@ -24,7 +24,10 @@ jobs:
         buildWithCMakeArgs: '-- -v'
         buildDirectory: build
 
-    - name: release artifacts
+    - name: release orgo invasion
       uses: actions/upload-artifact@v2
       with:
-        path: build
+        name: ogro_invasion
+        path: |
+          build/chapter_13/ogro_invasion/data
+          build/chapter_13/ogro_invasion/ogro_invasion
