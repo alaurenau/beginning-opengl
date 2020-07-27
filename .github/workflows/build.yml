@@ -28,6 +28,14 @@ jobs:
       with:
         submodules: true
         
+    - name: copy binary 1
+      if: contains( matrix.os, 'windows')
+      run: "mkdir build && touch hello"  
+        
+    - name: copy binary 2
+      if: contains( matrix.os, 'windows')
+      run: "cp hello build"
+        
     - name: install ubuntu opengl dependencies
       if: contains( matrix.os, 'ubuntu')
       run: sudo apt-get install xorg-dev libglu1-mesa-dev
