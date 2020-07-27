@@ -42,7 +42,7 @@ jobs:
 
     - name: copy binary
       if: contains( matrix.os, 'windows')
-      run: cp build/Release/ogro_invasion.exe build
+      run: cp build/chapter_13/ogro_invasion/Release/ogro_invasion.exe build/chapter_13/ogro_invasion
 
     - name: release orgo invasion
       uses: actions/upload-artifact@v2
