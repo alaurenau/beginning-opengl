@@ -9,8 +9,8 @@ on:
 
 jobs:
   build:
-    name: build-${ { matrix.name } }
-    runs-on: ${ { matrix.os } }
+    name: build-${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
@@ -39,7 +39,7 @@ jobs:
     - name: release orgo invasion
       uses: actions/upload-artifact@v2
       with:
-        name: ogro_invasion_${ { matrix.config.name } }
+        name: ogro_invasion_${{ matrix.config.name }}
         path: |
           build/chapter_13/ogro_invasion/data
           build/chapter_13/ogro_invasion/ogro_invasion*
