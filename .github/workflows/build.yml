@@ -14,3 +14,9 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: true
+    
+    - name: run cmake
+      uses: lukka/run-cmake@v2
+      with:
+        buildWithCMakeArgs: '-- -v'
+        buildDirectory: '${{ runner.workspace }}/build/'
